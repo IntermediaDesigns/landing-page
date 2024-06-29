@@ -8,10 +8,15 @@ const sections = document.querySelectorAll("section");
 const navList = document.getElementById("navbar__list");
 const fragment = document.createDocumentFragment();
 
+// Responsive NavBar
+document.querySelector('.hamburger').addEventListener('click', function() {
+  document.querySelector('.navbar__menu ul').classList.toggle('active');
+});
+
 function createNavList() {
-  if (!fragment) {
-    var fragment = document.createDocumentFragment();
-  }
+  const sectionsContainer = document.createElement("div"); // Container for section links
+  sectionsContainer.classList.add("sections-container");
+
   const homeHeader = document.querySelector("header");
   if (homeHeader) {
     const homeListItem = document.createElement("li");
@@ -21,7 +26,7 @@ function createNavList() {
     homeLink.classList.add("menu__link");
     homeLink.id = "home-link";
     homeListItem.appendChild(homeLink);
-    fragment.appendChild(homeListItem);
+    fragment.appendChild(homeListItem); // Append Home directly to fragment
   }
 
   for (let i = 0; i < sections.length; i++) {
@@ -32,8 +37,9 @@ function createNavList() {
     link.setAttribute("href", `#${section.id}`);
     link.classList.add("menu__link");
     listItem.appendChild(link);
-    fragment.appendChild(listItem);
+    sectionsContainer.appendChild(listItem); // Append section links to the container
   }
+  fragment.appendChild(sectionsContainer); // Append the container to the fragment
   navList.appendChild(fragment);
 }
 createNavList();
