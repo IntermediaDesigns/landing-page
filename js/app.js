@@ -13,6 +13,15 @@ document.querySelector(".hamburger").addEventListener("click", function () {
 });
 
 // Close Sidebar
+function closeSidebar() {
+  const sidebar = document.getElementById("sidebar");
+  if (window.innerWidth > 768) {
+    sidebar.style.display = "block";
+  } else {
+    sidebar.style.display = "none";
+  }
+}
+
 const closeButton = document.createElement("button");
 closeButton.textContent = "X";
 closeButton.setAttribute("id", "close-sidebar");
@@ -20,13 +29,19 @@ closeButton.classList.add("close-sidebar");
 fragment.appendChild(closeButton);
 
 document.addEventListener("DOMContentLoaded", () => {
-  const closeButton = document.getElementById("close-sidebar");
+  const sidebar = document.getElementById("sidebar");
+  const closeButton = document.createElement("button");
+  closeButton.textContent = "X";
+  closeButton.setAttribute("id", "close-sidebar");
+  closeButton.classList.add("close-sidebar");
+  sidebar.appendChild(closeButton);
+
   closeButton.addEventListener("click", () => {
-    const sidebar = document.getElementById("sidebar");
     sidebar.style.display = "none";
   });
-});
 
+  window.addEventListener("resize", closeSidebar);
+});
 
 
 function createNavList() {
