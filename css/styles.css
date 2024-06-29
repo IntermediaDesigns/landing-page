@@ -251,6 +251,7 @@ section.your-active-class .landing__container::after {
   cursor: pointer;
 }
 
+
 @media screen and (max-width: 768px) {
   .hamburger {
     display: flex;
@@ -312,7 +313,7 @@ section.your-active-class .landing__container::after {
     align-items: flex-start;
   }
 
-  .close-sidebar {
+ #close-sidebar {
     position: absolute;
     top: 15px;
     right: 15px;
@@ -324,7 +325,6 @@ section.your-active-class .landing__container::after {
     border: 1px solid #fff;
     border-radius: 50%;
   }
-}
 
 .navbar__menu ul.active {
   right: 0;

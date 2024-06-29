@@ -22,27 +22,11 @@ function closeSidebar() {
   }
 }
 
-const closeButton = document.createElement("button");
-closeButton.textContent = "X";
-closeButton.setAttribute("id", "close-sidebar");
-closeButton.classList.add("close-sidebar");
-fragment.appendChild(closeButton);
-
-document.addEventListener("DOMContentLoaded", () => {
-  const sidebar = document.getElementById("sidebar");
-  const closeButton = document.createElement("button");
-  closeButton.textContent = "X";
-  closeButton.setAttribute("id", "close-sidebar");
-  closeButton.classList.add("close-sidebar");
-  sidebar.appendChild(closeButton);
-
-  closeButton.addEventListener("click", () => {
-    sidebar.style.display = "none";
-  });
-
-  window.addEventListener("resize", closeSidebar);
+document.getElementById('close-sidebar').addEventListener('click', function() {
+  closeSidebar();
 });
 
+window.addEventListener("resize", closeSidebar);
 
 function createNavList() {
   const sectionsContainer = document.createElement("div");
