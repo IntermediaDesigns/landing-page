@@ -3,18 +3,34 @@
  * Great to have comments before crucial code sections within the procedure.
  */
 
-
 const sections = document.querySelectorAll("section");
 const navList = document.getElementById("navbar__list");
 const fragment = document.createDocumentFragment();
 
 // Responsive NavBar
-document.querySelector('.hamburger').addEventListener('click', function() {
-  document.querySelector('.navbar__menu ul').classList.toggle('active');
+document.querySelector(".hamburger").addEventListener("click", function () {
+  document.querySelector(".navbar__menu ul").classList.toggle("active");
 });
 
+// Close Sidebar
+const closeButton = document.createElement("button");
+closeButton.textContent = "X";
+closeButton.setAttribute("id", "close-sidebar");
+closeButton.classList.add("close-sidebar");
+fragment.appendChild(closeButton);
+
+document.addEventListener("DOMContentLoaded", () => {
+  const closeButton = document.getElementById("close-sidebar");
+  closeButton.addEventListener("click", () => {
+    const sidebar = document.getElementById("sidebar");
+    sidebar.style.display = "none";
+  });
+});
+
+
+
 function createNavList() {
-  const sectionsContainer = document.createElement("div"); // Container for section links
+  const sectionsContainer = document.createElement("div");
   sectionsContainer.classList.add("sections-container");
 
   const homeHeader = document.querySelector("header");
@@ -26,7 +42,7 @@ function createNavList() {
     homeLink.classList.add("menu__link");
     homeLink.id = "home-link";
     homeListItem.appendChild(homeLink);
-    fragment.appendChild(homeListItem); // Append Home directly to fragment
+    fragment.appendChild(homeListItem);
   }
 
   for (let i = 0; i < sections.length; i++) {
@@ -37,9 +53,9 @@ function createNavList() {
     link.setAttribute("href", `#${section.id}`);
     link.classList.add("menu__link");
     listItem.appendChild(link);
-    sectionsContainer.appendChild(listItem); // Append section links to the container
+    sectionsContainer.appendChild(listItem);
   }
-  fragment.appendChild(sectionsContainer); // Append the container to the fragment
+  fragment.appendChild(sectionsContainer);
   navList.appendChild(fragment);
 }
 createNavList();
