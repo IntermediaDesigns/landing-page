@@ -14,19 +14,28 @@ document.querySelector(".hamburger").addEventListener("click", function () {
 
 // Close Sidebar
 function closeSidebar() {
-  const sidebar = document.getElementById("sidebar");
-  if (window.innerWidth > 768) {
-    sidebar.style.display = "block";
-  } else {
-    sidebar.style.display = "none";
-  }
+  document.querySelector(".navbar__menu ul").classList.remove("active");
+  document.body.classList.remove("sidebar-active");
 }
 
-document.getElementById('close-sidebar').addEventListener('click', function() {
+document.getElementById("close-sidebar").addEventListener("click", function () {
   closeSidebar();
 });
 
+
+// Function to open the sidebar
+function openSidebar() {
+  document.body.classList.add("sidebar-active");
+}
+
+document.querySelector(".hamburger").addEventListener("click", openSidebar);
+document
+  .getElementById("close-sidebar")
+  .addEventListener("click", closeSidebar);
+
 window.addEventListener("resize", closeSidebar);
+
+
 
 function createNavList() {
   const sectionsContainer = document.createElement("div");
@@ -40,6 +49,7 @@ function createNavList() {
     homeLink.setAttribute("href", "#home");
     homeLink.classList.add("menu__link");
     homeLink.id = "home-link";
+    homeLink.addEventListener("click", closeSidebar);
     homeListItem.appendChild(homeLink);
     fragment.appendChild(homeListItem);
   }
@@ -51,6 +61,7 @@ function createNavList() {
     link.textContent = section.getAttribute("data-nav");
     link.setAttribute("href", `#${section.id}`);
     link.classList.add("menu__link");
+    link.addEventListener("click", closeSidebar);
     listItem.appendChild(link);
     sectionsContainer.appendChild(listItem);
   }
