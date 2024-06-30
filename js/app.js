@@ -22,7 +22,6 @@ document.getElementById("close-sidebar").addEventListener("click", function () {
   closeSidebar();
 });
 
-
 // Function to open the sidebar
 function openSidebar() {
   document.body.classList.add("sidebar-active");
@@ -94,16 +93,14 @@ scrollToSection();
 
 // Scroll to top
 function scrollToTop() {
-  // Attach event listener to the home link
   const homeLink = document.getElementById("home-link");
   homeLink.addEventListener("click", (e) => {
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
-  // Attach event listener to the back__top element
   const backTop = document.getElementById("backto__top");
-  if (backTop) { // Check if the back__top element exists
+  if (backTop) {
     backTop.addEventListener("click", (e) => {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -113,6 +110,7 @@ function scrollToTop() {
 
 scrollToTop();
 
+// Set active section
 function setActiveSection() {
   for (let i = 0; i < sections.length; i++) {
     const section = sections[i];
