@@ -35,8 +35,7 @@ document
 
 window.addEventListener("resize", closeSidebar);
 
-
-
+// Create Nav List
 function createNavList() {
   const sectionsContainer = document.createElement("div");
   sectionsContainer.classList.add("sections-container");
@@ -70,6 +69,7 @@ function createNavList() {
 }
 createNavList();
 
+// Scroll to section
 function scrollToSection() {
   navList.addEventListener("click", (e) => {
     e.preventDefault();
@@ -92,13 +92,25 @@ function scrollToSection() {
 
 scrollToSection();
 
+// Scroll to top
 function scrollToTop() {
+  // Attach event listener to the home link
   const homeLink = document.getElementById("home-link");
   homeLink.addEventListener("click", (e) => {
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
+
+  // Attach event listener to the back__top element
+  const backTop = document.getElementById("backto__top");
+  if (backTop) { // Check if the back__top element exists
+    backTop.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
 }
+
 scrollToTop();
 
 function setActiveSection() {
