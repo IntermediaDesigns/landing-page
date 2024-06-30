@@ -41,4 +41,4 @@ This section should list any major frameworks/libraries used to bootstrap your p
 
 This project is designed to handle situations where the amount of content added to a page through a CMS or an API is unpredictable. To address this, I have dynamically added content to the page, specifically with the navigation menu. This dynamic construction of the navigation menu serves as an excellent introduction to understanding the virtual DOM, a concept when working with JavaScript frameworks.
 
-To enhance the user experience, the section of the page that is actively being viewed will have animations and elements changing.
+To enhance the user experience, the section of the page that is actively being viewed has animations and elements changing.  The website is responsive and has a sidebar menu.  
