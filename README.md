@@ -37,7 +37,7 @@ This section should list any major frameworks/libraries used to bootstrap your p
 - [CSS](https://www.w3schools.com/css/)
 - [JavaScript](https://www.w3schools.com/js/)
 
- ## Getting Started
+ ## What I Built
 
 This project is designed to handle situations where the amount of content added to a page through a CMS or an API is unpredictable. To address this, I have dynamically added content to the page, specifically with the navigation menu. This dynamic construction of the navigation menu serves as an excellent introduction to understanding the virtual DOM, a concept when working with JavaScript frameworks.
 
