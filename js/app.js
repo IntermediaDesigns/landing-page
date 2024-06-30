@@ -114,19 +114,23 @@ scrollToTop();
 function setActiveSection() {
   for (let i = 0; i < sections.length; i++) {
     const section = sections[i];
+    const h2 = section.querySelector('h2');
     if (isInViewport(section)) {
       section.classList.add("active");
-      navList
+      h2.style.color = "orange";
+      document
         .querySelector('a[href="#' + section.id + '"]')
-        .classList.add("active");
+        .classList.add("active-link");
     } else {
       section.classList.remove("active");
-      navList
+      h2.style.color = "";
+      document
         .querySelector('a[href="#' + section.id + '"]')
-        .classList.remove("active");
+        .classList.remove("active-link");
     }
   }
 }
+
 function isInViewport(element) {
   const rect = element.getBoundingClientRect();
   return (
@@ -137,3 +141,23 @@ function isInViewport(element) {
 
 setActiveSection();
 document.addEventListener("scroll", setActiveSection);
+
+// Active Section
+document.addEventListener('DOMContentLoaded', () => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelector('h2').classList.add('h2-active');
+      } else {
+        entry.target.querySelector('h2').classList.remove('h2-active');
+      }
+    });
+  }, {
+    rootMargin: '0px',
+    threshold: 0.5
+  });
+
+  document.querySelectorAll('section.your-active-class').forEach(section => {
+    observer.observe(section);
+  });
+});

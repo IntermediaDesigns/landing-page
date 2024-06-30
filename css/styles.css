@@ -245,6 +245,10 @@ section.your-active-class .landing__container::after {
   animation: rotate 5s linear 0s infinite forwards reverse;
 }
 
+section.your-active-class h2.h2-active {
+  animation: scaleUp 0.5s ease;
+}
+
 /* Section Active Styles Keyframe Animations */
 @keyframes rotate {
   from {
@@ -252,6 +256,18 @@ section.your-active-class .landing__container::after {
   }
   to {
     transform: rotate(360deg) translate(-1em) rotate(-360deg);
+  }
+}
+
+@keyframes scaleUp {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
   }
 }
 
